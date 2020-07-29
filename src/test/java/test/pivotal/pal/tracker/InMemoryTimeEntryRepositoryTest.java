@@ -21,6 +21,7 @@ public class InMemoryTimeEntryRepositoryTest {
 
         long timeEntryId = 1L;
         TimeEntry expected = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2017-01-08"), 8);
+        System.out.println(createdTimeEntry.getId());
         assertThat(createdTimeEntry).isEqualTo(expected);
 
         TimeEntry readEntry = repo.find(createdTimeEntry.getId());
@@ -72,8 +73,9 @@ public class InMemoryTimeEntryRepositoryTest {
         TimeEntry updatedEntry = repo.update(
                 created.getId(),
                 new TimeEntry(321L, 654L, LocalDate.parse("2017-01-09"), 5));
-
+        System.out.println(updatedEntry.getId());
         TimeEntry expected = new TimeEntry(created.getId(), 321L, 654L, LocalDate.parse("2017-01-09"), 5);
+
         assertThat(updatedEntry).isEqualTo(expected);
         assertThat(repo.find(created.getId())).isEqualTo(expected);
     }
