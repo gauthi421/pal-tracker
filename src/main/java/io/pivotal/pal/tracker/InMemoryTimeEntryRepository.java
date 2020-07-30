@@ -6,7 +6,6 @@ import java.util.*;
 
 import static java.util.stream.Collectors.toCollection;
 
-@Component
 public class InMemoryTimeEntryRepository implements TimeEntryRepository{
     Map<Long, TimeEntry> timeEntryRepoList = new HashMap();
     private int counter = 0;
